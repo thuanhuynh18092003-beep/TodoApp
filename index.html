@@ -47,5 +47,31 @@
         <li>Học Node.js cơ bản (Demo)</li>
       </ul>
     </div>
+    <script>
+      // 1. Lấy các thành phần giao diện vào biến
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+      const todoList = document.getElementById("todo-list");
+
+      // 2. Lắng nghe sự kiện click chuột vào nút "Thêm"
+      button.addEventListener("click", () => {
+        const taskText = input.value; // Lấy nội dung người dùng đã gõ
+
+        if (taskText === "") {
+          alert("Vui lòng nhập công việc!");
+          return;
+        }
+
+        // 3. Tạo một thẻ <li> mới
+        const li = document.createElement("li");
+        li.textContent = taskText;
+
+        // 4. Thêm thẻ <li> đó vào danh sách <ul>
+        todoList.appendChild(li);
+
+        // 5. Xóa nội dung trong ô input sau khi thêm xong
+        input.value = "";
+      });
+    </script>
   </body>
 </html>
