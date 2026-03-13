@@ -1,11 +1,13 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const port = 3000;
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__current_time, "index.html"));
+  // Sửa __current_time thành __dirname
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server đang mở tại http://localhost:3000");
+app.listen(port, () => {
+  console.log(`Server đang chạy tại http://localhost:${port}`);
 });
